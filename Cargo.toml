@@ -1,0 +1,11 @@
+[package]
+name = "plexus"
+version = "0.1.0"
+edition = "2024"
+authors = ["Plexus Authors"]
+description = "A modern terminal multiplexer"
+
+[dependencies]
+crossterm = "0.29"
+nix = { version = "0.29", features = ["term", "process", "fs", "poll", "signal"] }
+libc = "0.2"
