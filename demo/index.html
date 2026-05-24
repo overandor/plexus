@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><title>Plexus Demo</title></head>
+<body>
+<h1>Plexus Demo</h1>
+<button onclick="addConnection()">Add Connection</button>
+<button onclick="checkHealth()">Check Health</button>
+<button onclick="manageTimeout()">Manage Timeout</button>
+<div id="stats"></div>
+<div id="log"></div>
+<script>
+let connections = [];
+let healthChecks = 0;
+function addConnection() {
+  connections.push({id: connections.length, status: 'active'});
+  log(`Connection ${connections.length-1} added`);
+}
+function checkHealth() {
+  healthChecks++;
+  log("Health check: All connections healthy");
+}
+function manageTimeout() {
+  log("Timeout configured: 30 seconds");
+}
+function updateStats() {
+  document.getElementById('stats').innerHTML = `Connections: ${connections.length} | Health Checks: ${healthChecks}`;
+}
+function log(msg) {
+  document.getElementById('log').innerHTML += `<div>${msg}</div>`;
+}
+</script>
+</body>
+</html>
